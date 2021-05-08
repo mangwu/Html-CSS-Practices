@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>视差滚动</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <section>
+      <img src="assets/bg.jpg" id="bg">
+      <img src="assets/moon.png" id="moon">
+      <img src="assets/mountain.png" id="mountain">
+      <img src="assets/road.png" id="road">
+      <h2 id="text">Moon Light</h2>
+    <section>
+    <script>
+      let bg = document.querySelector('#bg')
+      let moon = document.querySelector('#moon')
+      let mountain = document.querySelector('#mountain')
+      let road = document.querySelector('#road')
+      let text = document.querySelector('#text')
+      
+      window.addEventListener('scroll', function() {
+        var value = window.scrollY;
+        // 保持bg相对于滚动条慢速滚动
+        bg.style.top = value * 0.5 + 'px'
+        // 月亮相对于页面向左上方滚动
+        moon.style.left = -value * 0.5 + 'px'
+        // 山峰向上相对于路面慢速滚动
+        mountain.style.top = -value * 0.15 + 'px'
+        // 路面滚动变慢
+        road.style.top = value * 0.15 + 'px'
+        // 字体不滚动
+        text.style.top = window.innerHeight / 2 + value * 1 + 'px'
+        
+      })
+    </script>
+  </body>
+    
